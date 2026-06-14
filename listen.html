@@ -1,11 +1,217 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="uk">
 <head>
-    <title>Назва сторінки</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE - Neon Skies</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Підключаємо іконки Font Awesome для плеєра -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
     <script src="script.js"></script>
+    <!-- Шапка сайту (Header) -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span>PULSE</span>
+        </div>
+        <nav class="nav">
+            <a href="#" class="active">Discover</a>
+            <a href="#">Library</a>
+            <a href="#">Radio</a>
+            <a href="#">Live</a>
+        </nav>
+        <div class="search-profile">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search tracks, vibes...">
+            </div>
+            <div class="profile-avatar"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- Головна секція з альбомом -->
+        <section class="hero-section">
+            <!-- Візуалізатор (диск, що крутиться) -->
+            <div class="visualizer-container">
+                <div class="spinning-disk">
+                    <div class="inner-dot"></div>
+                </div>
+                <div class="badge">NOW SPINNING</div>
+            </div>
+
+            <!-- Інформація про альбом -->
+            <div class="album-info">
+                <span class="featured-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> FEATURED ALBUM</span>
+                <h1 class="album-title">Neon <span class="cyan-text">Skies</span></h1>
+                <p class="album-description">A synthwave journey through midnight cities — by <strong>The Lumen</strong>.</p>
+                <p class="album-meta">6 tracks • 21 min.</p>
+
+                <!-- Кнопки керування -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary"><i class="fa-solid fa-pause"></i> Pause</button>
+                    <button class="btn btn-secondary"><i class="fa-regular fa-heart"></i> Save</button>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-tower-broadcast"></i> Start Radio</button>
+                </div>
+
+                <!-- Статистика -->
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>8.4M</h3>
+                        <p>PLAYS</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>214K</h3>
+                        <p>LIKES</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>21:44</h3>
+                        <p>LENGTH</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Фільтри тегів -->
+        <div class="tags-container">
+            <button class="tag active"><i class="fa-solid fa-border-all"></i> All</button>
+            <button class="tag"><i class="fa-solid fa-bolt"></i> Drive</button>
+            <button class="tag"><i class="fa-solid fa-brain"></i> Focus</button>
+            <button class="tag"><i class="fa-solid fa-snowflake"></i> Chill</button>
+        </div>
+
+        <!-- Сітка треків (Зображена на нижній частині image_556464.png) -->
+        <section class="tracks-grid">
+            <!-- Трек 1 (Активний) -->
+            <div class="track-card active-track">
+                <div class="track-cover audio-wave">
+                    <i class="fa-solid fa-chart-simple"></i>
+                </div>
+                <div class="track-details">
+                    <h4>Midnight Drive</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">DRIVE</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 1.2M</span>
+                        <span><i class="fa-regular fa-clock"></i> 3:24</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трек 2 -->
+            <div class="track-card">
+                <div class="track-cover"></div>
+                <div class="track-details">
+                    <h4>Velvet Hour</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">CHILL</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 984K</span>
+                        <span><i class="fa-regular fa-clock"></i> 4:01</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трек 3 -->
+            <div class="track-card">
+                <div class="track-cover"></div>
+                <div class="track-details">
+                    <h4>Paper Planes</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">ENERGY</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 2.1M</span>
+                        <span><i class="fa-regular fa-clock"></i> 2:58</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трек 4 -->
+            <div class="track-card">
+                <div class="track-cover play-icon-cover">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <div class="track-details">
+                    <h4>Golden Static</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">FOCUS</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 756K</span>
+                        <span><i class="fa-regular fa-clock"></i> 3:47</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трек 5 -->
+            <div class="track-card">
+                <div class="track-cover"></div>
+                <div class="track-details">
+                    <h4>Echo Park</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">DRIVE</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 1.5M</span>
+                        <span><i class="fa-regular fa-clock"></i> 3:12</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трек 6 -->
+            <div class="track-card">
+                <div class="track-cover"></div>
+                <div class="track-details">
+                    <h4>Hollow Bloom</h4>
+                    <p class="artist">The Lumen</p>
+                    <div class="track-badges">
+                        <span class="badge-item">CHILL</span>
+                        <span><i class="fa-solid fa-arrow-trend-up"></i> 612K</span>
+                        <span><i class="fa-regular fa-clock"></i> 4:22</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Нижній фіксований плеєр (Music Player Bar) -->
+    <div class="player-bar-container">
+        <div class="player-bar">
+            <div class="player-track-info">
+                <div class="mini-cover"></div>
+                <div>
+                    <h5>Midnight Drive</h5>
+                    <p>The Lumen</p>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <button class="control-btn"><i class="fa-solid fa-shuffle"></i></button>
+                <button class="control-btn"><i class="fa-solid fa-backward-step"></i></button>
+                <button class="play-pause-circle"><i class="fa-solid fa-pause"></i></button>
+                <button class="control-btn"><i class="fa-solid fa-forward-step"></i></button>
+                <button class="control-btn"><i class="fa-solid fa-repeat"></i></button>
+            </div>
+
+            <div class="player-progress-container">
+                <span class="time">1:24</span>
+                <div class="progress-bar-wrapper">
+                    <input type="range" class="progress-bar" value="40" min="0" max="100">
+                </div>
+                <span class="time">3:24</span>
+            </div>
+
+            <div class="volume-controls">
+                <button class="control-btn"><i class="fa-solid fa-volume-high"></i></button>
+                <div class="volume-bar-wrapper">
+                    <input type="range" class="volume-bar" value="70" min="0" max="100">
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
