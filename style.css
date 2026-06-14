@@ -1,6 +1,105 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  display: flex;
+  background: #0d1410;
+  color: #e8f5e2;
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
 }
 
+.sidebar {
+  width: 220px;
+  background: #0f1812;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: fixed;
+  top: 0; left: 0; bottom: 80px;
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  color: #3cb96b;
+  font-weight: 700;
+}
+
+nav { display: flex; flex-direction: column; gap: 8px; }
+
+.nav-link {
+  color: #7a9e80;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: #1a2e20;
+  color: #e8f5e2;
+}
+
+.main {
+  margin-left: 220px;
+  padding: 40px 32px 100px;
+  flex: 1;
+}
+
+h1 { font-family: 'Outfit', sans-serif; font-size: 2rem; margin-bottom: 24px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #1a2e20;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.card:hover { transform: translateY(-4px); background: #213825; }
+
+.card img {
+  width: 100%; aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.card h3 { font-size: 0.9rem; color: #e8f5e2; }
+.card p { font-size: 0.75rem; color: #7a9e80; margin-top: 4px; }
+
+.player {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: #0f1812;
+  border-top: 1px solid #1e3024;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+#song-title { color: #e8f5e2; font-size: 0.95rem; }
+
+.controls { display: flex; gap: 16px; }
+
+.controls button {
+  background: none;
+  border: none;
+  color: #e8f5e2;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.controls button:hover { color: #3cb96b; }

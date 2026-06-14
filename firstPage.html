@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Назва сторінки</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lovlify</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">🎵 LoveLiFy</div>
+      <nav>
+        <a href="#" class="nav-link active">Головна</a>
+        <a href="#" class="nav-link">Пошук</a>
+        <a href="#" class="nav-link">Бібліотека</a>
+      </nav>
+    </div>
+    <main class="main">
+      <h1 id="greeting">Привіт!</h1>
+      <div class="cards" id="cards"></div>
+    </main>
+    <div class="player">
+      <span id="song-title">Нічого не грає</span>
+      <div class="controls">
+        <button onclick="prev()">⏮️</button>
+        <button onclick="togglePlay()" id="play-btn">▶️</button>
+        <button onclick="next()">⏭️</button>
+      </div>
+    </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
