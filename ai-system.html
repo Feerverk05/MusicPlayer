@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <title>Назва сторінки</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PULSE — AI-студія</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+  <header class="header">
+    <a href="firstPage.html" class="logo">
+      <div class="logo-icon"></div>
+      <span>PULSE</span>
+    </a>
+    <nav class="nav">
+      <a href="firstPage.html">Головна</a>
+      <a href="listen.html">Альбом</a>
+      <a href="ai-system.html" class="active">AI-студія</a>
+      <a href="baraban.html">Ритм</a>
+    </nav>
+    <div class="search-profile">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Пошук треків..." />
+      </div>
+      <div class="profile-avatar"></div>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="container ai-section">
+    <section class="ai-hero">
+      <div class="ai-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> AI-генерація музики</div>
+      <h1>Створюй <span>музику</span><br />одним реченням</h1>
+      <p class="ai-subtitle">
+        Опиши настрій, жанр чи інструменти — і отримай<br />
+        оригінальний трек студійної якості за лічені секунди.
+      </p>
+    </section>
+
+    <div class="generator-card">
+      <label for="track-desc">Опис треку</label>
+      <textarea
+        id="track-desc"
+        placeholder="Наприклад: меланхолійне фортепіано з м'якими струнними під дощ за вікном..."
+      ></textarea>
+
+      <div class="prompt-list">
+        <button type="button" class="prompt-btn">🎬 Епічна кінематографічна оркестрова музика для трейлера...</button>
+        <button type="button" class="prompt-btn">☕ Спокійний лоу-фай біт для навчання з м'яким дж...</button>
+        <button type="button" class="prompt-btn">🎸 Енергійний рок-гітарний риф із потужним б...</button>
+        <button type="button" class="prompt-btn">🌙 Меланхолійне фортепіано з м'якими струнн...</button>
+      </div>
+
+      <div class="duration-row">
+        <span>Тривалість</span>
+        <span id="duration-value">30 сек</span>
+      </div>
+      <input type="range" min="10" max="180" value="30" id="duration-slider" class="range-input" />
+
+      <button type="button" class="btn btn-primary generate-btn">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Згенерувати трек
+      </button>
+    </div>
+
+    <div class="tracks-section">
+      <h3><i class="fa-solid fa-music"></i> Створені треки (0)</h3>
+      <div class="empty-state">
+        Поки що порожньо. Згенеруй свій перший трек ✨
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const slider = document.getElementById("duration-slider");
+    const durationValue = document.getElementById("duration-value");
+    const textarea = document.getElementById("track-desc");
+
+    function updateSlider() {
+      slider.style.setProperty("--val", slider.value);
+      durationValue.textContent = `${slider.value} сек`;
+    }
+
+    slider.addEventListener("input", updateSlider);
+    updateSlider();
+
+    document.querySelectorAll(".prompt-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        textarea.value = btn.textContent.trim();
+        textarea.focus();
+      });
+    });
+  </script>
 </body>
 </html>

@@ -1,11 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <title>Назва сторінки</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PULSE — Neon Skies</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+  <header class="header">
+    <a href="firstPage.html" class="logo">
+      <div class="logo-icon"></div>
+      <span>PULSE</span>
+    </a>
+    <nav class="nav">
+      <a href="firstPage.html">Головна</a>
+      <a href="listen.html" class="active">Альбом</a>
+      <a href="ai-system.html">AI-студія</a>
+      <a href="baraban.html">Ритм</a>
+    </nav>
+    <div class="search-profile">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Пошук треків..." />
+      </div>
+      <div class="profile-avatar"></div>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="container">
+    <section class="hero-section">
+      <div class="visualizer-container">
+        <div class="spinning-disk paused" id="spinning-disk">
+          <div class="inner-dot"></div>
+        </div>
+        <div class="spin-badge" id="spin-badge">НА ПАУЗІ</div>
+      </div>
+
+      <div class="album-info">
+        <span class="featured-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> РЕКОМЕНДОВАНИЙ АЛЬБОМ</span>
+        <h1 class="album-title">Neon <span class="cyan-text">Skies</span></h1>
+        <p class="album-description">Synthwave-подорож крізь нічне місто — від <strong>The Lumen</strong>.</p>
+        <p class="album-meta">6 треків • 21 хв.</p>
+
+        <div class="action-buttons">
+          <button class="btn btn-primary" id="album-play-btn"><i class="fa-solid fa-play"></i> Грати</button>
+          <button class="btn btn-secondary" id="save-btn"><i class="fa-regular fa-heart"></i> Зберегти</button>
+          <button class="btn btn-secondary" id="radio-btn"><i class="fa-solid fa-tower-broadcast"></i> Радіо</button>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-card">
+            <h3>8.4M</h3>
+            <p>ПРОСЛУХ.</p>
+          </div>
+          <div class="stat-card">
+            <h3 id="likes-stat">214K</h3>
+            <p>ЛАЙКІВ</p>
+          </div>
+          <div class="stat-card">
+            <h3>21:44</h3>
+            <p>ТРИВАЛ.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tags-container">
+      <button class="filter-tag active" data-filter="all"><i class="fa-solid fa-border-all"></i> Усі</button>
+      <button class="filter-tag" data-filter="drive"><i class="fa-solid fa-bolt"></i> Drive</button>
+      <button class="filter-tag" data-filter="focus"><i class="fa-solid fa-brain"></i> Focus</button>
+      <button class="filter-tag" data-filter="chill"><i class="fa-solid fa-snowflake"></i> Chill</button>
+    </div>
+
+    <section class="tracks-grid" id="tracks-grid"></section>
+  </main>
+
+  <div class="player-bar-container">
+    <div class="player-bar">
+      <div class="player-track-info">
+        <div class="mini-cover"></div>
+        <div>
+          <h5 id="player-title">Midnight Drive</h5>
+          <p id="player-artist">The Lumen</p>
+        </div>
+      </div>
+
+      <div class="player-controls">
+        <button class="control-btn" id="shuffle-btn" title="Перемішати"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="control-btn" id="prev-btn" title="Попередній"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="play-pause-circle" id="bar-play-btn" title="Грати / Пауза"><i class="fa-solid fa-play"></i></button>
+        <button class="control-btn" id="next-btn" title="Наступний"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="control-btn" id="repeat-btn" title="Повтор"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+
+      <div class="player-progress-container">
+        <span class="time" id="current-time">0:00</span>
+        <div class="progress-bar-wrapper">
+          <input type="range" class="progress-bar" id="progress-bar" value="0" min="0" max="100" />
+        </div>
+        <span class="time" id="total-time">0:00</span>
+      </div>
+
+      <div class="volume-controls">
+        <button class="control-btn" id="volume-btn" title="Звук"><i class="fa-solid fa-volume-high"></i></button>
+        <div class="volume-bar-wrapper">
+          <input type="range" class="volume-bar" id="volume-bar" value="70" min="0" max="100" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio-player" preload="metadata"></audio>
+  <script src="listen.js"></script>
 </body>
 </html>

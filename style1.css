@@ -1,0 +1,534 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Обнулення стилів та базові налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #e0f6f4;
+    /* Створення ефекту сітки (Grid background) як на скріншоті */
+    background-image: 
+        linear-gradient(rgba(180, 230, 225, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 230, 225, 0.25) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: #1e3d3a;
+    padding-bottom: 120px; /* Місце для нижнього плеєра */
+    min-height: 100vh;
+}
+
+/* Шапка сайту */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(180, 230, 225, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    color: #0fa395;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 3px solid #0fa395;
+    position: relative;
+}
+.logo-icon::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #0fa395;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav a {
+    text-decoration: none;
+    color: #557a75;
+    margin: 0 15px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav a.active, .nav a:hover {
+    color: #0fa395;
+    border-bottom: 2px solid #0fa395;
+    padding-bottom: 4px;
+}
+
+.search-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 12px;
+    color: #7da5a0;
+}
+
+.search-bar input {
+    padding: 8px 12px 8px 35px;
+    border-radius: 20px;
+    border: 1px solid #bceae5;
+    background: rgba(255, 255, 255, 0.8);
+    width: 220px;
+    outline: none;
+    color: #1e3d3a;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    background: #0fa395;
+    border-radius: 50%;
+}
+
+/* Контейнер вмісту */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Головний блок (Hero) */
+.hero-section {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Круглий візуалізатор (диск) */
+.visualizer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.spinning-disk {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    border: 14px solid #0fa395;
+    box-shadow: 0 0 0 12px rgba(15, 163, 149, 0.15);
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 10s linear infinite;
+}
+
+.inner-dot {
+    width: 16px;
+    height: 16px;
+    background: #1e3d3a;
+    border-radius: 50%;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.badge {
+    display: block;
+    background: #0fa395;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* Текст та кнопки альбому */
+.album-info {
+    flex: 1;
+}
+
+.featured-badge {
+    color: #0fa395;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.album-title {
+    font-size: 54px;
+    font-weight: 800;
+    color: #1a3835;
+    line-height: 1.1;
+    margin: 5px 0;
+}
+
+.cyan-text {
+    color: #14ccc0;
+}
+
+.album-description {
+    font-size: 16px;
+    color: #557a75;
+    margin-bottom: 5px;
+}
+
+.album-meta {
+    font-size: 13px;
+    color: #7da5a0;
+    margin-bottom: 20px;
+}
+
+/* Кнопки */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #0fa395;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0c877b;
+    transform: scale(1.1);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 1px solid #bceae5;
+    color: #0fa395;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(15, 163, 149, 0.05);
+    transform: scale(1.1);
+}
+
+/* Статистика цифр */
+.stats-container {
+    display: flex;
+    gap: 15px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 12px 25px;
+    border-radius: 12px;
+    min-width: 110px;
+}
+
+.stat-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e3d3a;
+}
+
+.stat-card p {
+    font-size: 10px;
+    color: #7da5a0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Теги фільтрації */
+.tags-container {
+    display: flex;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(15, 163, 149, 0.15);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: #557a75;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tag.active {
+    background: #0fa395;
+    color: white;
+    border-color: #0fa395;
+}
+
+/* Картки треків (Сітка нижньої панелі) */
+.tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.track-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.track-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.track-card.active-track {
+    border: 1.5px solid #0fa395;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(15, 163, 149, 0.08);
+}
+
+.track-cover {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #14ccc0, #0fa395);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.audio-wave i {
+    font-size: 18px;
+    animation: bounce 1s ease-in-out infinite alternate;
+}
+
+.play-icon-cover i {
+    font-size: 16px;
+}
+
+.track-details {
+    flex: 1;
+}
+
+.track-details h4 {
+    font-size: 15px;
+    color: #1e3d3a;
+    font-weight: 700;
+}
+
+.active-track .track-details h4 {
+    color: #0fa395;
+}
+
+.track-details .artist {
+    font-size: 12px;
+    color: #7da5a0;
+    margin-bottom: 5px;
+}
+
+.track-badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    color: #7da5a0;
+    font-weight: 500;
+}
+
+.badge-item {
+    font-size: 9px;
+    font-weight: bold;
+    color: #557a75;
+    border: 1px solid #bceae5;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Нижня панель музичного плеєра */
+.player-bar-container {
+    position: fixed;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.player-bar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    width: 100%;
+    max-width: 950px;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 30px rgba(26, 56, 53, 0.08);
+}
+
+.player-track-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 180px;
+}
+
+.mini-cover {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #14ccc0, #0fa395);
+}
+
+.player-track-info h5 {
+    font-size: 13px;
+    color: #1e3d3a;
+}
+
+.player-track-info p {
+    font-size: 11px;
+    color: #7da5a0;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: #7da5a0;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.control-btn:hover {
+    color: #0fa395;
+}
+
+.play-pause-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #0fa395;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Слайдери прогресу треку та гучності */
+.player-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    margin: 0 25px;
+}
+
+.time {
+    font-size: 11px;
+    color: #7da5a0;
+    width: 30px;
+}
+
+.progress-bar-wrapper, .volume-bar-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar, .volume-bar {
+    color: #0fa395;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #bceae5;
+    outline: none;
+}
+
+.progress-bar::-webkit-slider-thumb, .volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0fa395;
+    cursor: pointer;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+}
+
+/* Проста анімація для значка хвиль */
+@keyframes bounce {
+    0% { transform: scaleY(0.8); }
+    100% { transform: scaleY(1.2); }
+}

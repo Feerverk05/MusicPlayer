@@ -1,11 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <title>Назва сторінки</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PULSE — Ритм</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+  <header class="header">
+    <a href="firstPage.html" class="logo">
+      <div class="logo-icon"></div>
+      <span>PULSE</span>
+    </a>
+    <nav class="nav">
+      <a href="firstPage.html">Головна</a>
+      <a href="listen.html">Альбом</a>
+      <a href="ai-system.html">AI-студія</a>
+      <a href="baraban.html" class="active">Ритм</a>
+    </nav>
+    <div class="search-profile">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Пошук треків..." />
+      </div>
+      <div class="profile-avatar"></div>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="container">
+    <section class="drum-hero">
+      <p class="section-label"><i class="fa-solid fa-drum"></i> BEAT LAB</p>
+      <h1>Грай на <span class="cyan-text">барабанах</span></h1>
+      <p>Натискай на пади або клавіші Q W E · A S D · Z X C</p>
+    </section>
+
+    <div class="drum-grid" id="drum-grid">
+      <button class="drum-pad" data-key="q" data-sound="kick"><i class="fa-solid fa-circle"></i> Kick</button>
+      <button class="drum-pad" data-key="w" data-sound="snare"><i class="fa-solid fa-burst"></i> Snare</button>
+      <button class="drum-pad" data-key="e" data-sound="hihat"><i class="fa-solid fa-minus"></i> Hi-Hat</button>
+      <button class="drum-pad" data-key="a" data-sound="tom"><i class="fa-solid fa-record-vinyl"></i> Tom</button>
+      <button class="drum-pad" data-key="s" data-sound="clap"><i class="fa-solid fa-hands-clapping"></i> Clap</button>
+      <button class="drum-pad" data-key="d" data-sound="ride"><i class="fa-solid fa-ring"></i> Ride</button>
+      <button class="drum-pad" data-key="z" data-sound="crash"><i class="fa-solid fa-star"></i> Crash</button>
+      <button class="drum-pad" data-key="x" data-sound="perc"><i class="fa-solid fa-diamond"></i> Perc</button>
+      <button class="drum-pad" data-key="c" data-sound="bass"><i class="fa-solid fa-wave-square"></i> Bass</button>
+    </div>
+
+    <p class="drum-tip">Підключи навушники для найкращого звуку 🎧</p>
+  </main>
+
+  <script>
+    const pads = document.querySelectorAll(".drum-pad");
+    let audioCtx;
+
+    function getCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playTone(freq, type, duration) {
+      const ctx = getCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.value = freq;
+      gain.gain.setValueAtTime(0.3, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    }
+
+    const sounds = {
+      kick: () => playTone(80, "sine", 0.3),
+      snare: () => playTone(200, "triangle", 0.15),
+      hihat: () => playTone(800, "square", 0.05),
+      tom: () => playTone(150, "sine", 0.2),
+      clap: () => playTone(400, "triangle", 0.1),
+      ride: () => playTone(600, "sine", 0.08),
+      crash: () => playTone(300, "sawtooth", 0.4),
+      perc: () => playTone(500, "square", 0.12),
+      bass: () => playTone(55, "sine", 0.35),
+    };
+
+    function hitPad(pad) {
+      pad.classList.add("active");
+      sounds[pad.dataset.sound]?.();
+      setTimeout(() => pad.classList.remove("active"), 120);
+    }
+
+    pads.forEach((pad) => {
+      pad.addEventListener("click", () => hitPad(pad));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      const pad = document.querySelector(`.drum-pad[data-key="${e.key.toLowerCase()}"]`);
+      if (pad) {
+        e.preventDefault();
+        hitPad(pad);
+      }
+    });
+  </script>
 </body>
 </html>
