@@ -71,25 +71,6 @@
     </div>
   </main>
 
-  <script>
-    const slider = document.getElementById("duration-slider");
-    const durationValue = document.getElementById("duration-value");
-    const textarea = document.getElementById("track-desc");
-
-    function updateSlider() {
-      slider.style.setProperty("--val", slider.value);
-      durationValue.textContent = `${slider.value} сек`;
-    }
-
-    slider.addEventListener("input", updateSlider);
-    updateSlider();
-
-    document.querySelectorAll(".prompt-btn").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        textarea.value = btn.textContent.trim();
-        textarea.focus();
-      });
-    });
-  </script>
+  <script src="ai-system.js"></script>
 </body>
 </html>

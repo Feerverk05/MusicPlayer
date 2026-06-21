@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PULSE — Ритм</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style3.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
@@ -28,80 +29,97 @@
     </div>
   </header>
 
-  <main class="container">
-    <section class="drum-hero">
-      <p class="section-label"><i class="fa-solid fa-drum"></i> BEAT LAB</p>
-      <h1>Грай на <span class="cyan-text">барабанах</span></h1>
-      <p>Натискай на пади або клавіші Q W E · A S D · Z X C</p>
+  <main class="mixer-page">
+    <section class="mixer-hero">
+      <h1>TRACKMIXER <span>/ Музична студія</span></h1>
+      <p>Створюй власні біти тут і зараз — натискай на пад або клавіші 1–9, 0, Q–G</p>
     </section>
 
-    <div class="drum-grid" id="drum-grid">
-      <button class="drum-pad" data-key="q" data-sound="kick"><i class="fa-solid fa-circle"></i> Kick</button>
-      <button class="drum-pad" data-key="w" data-sound="snare"><i class="fa-solid fa-burst"></i> Snare</button>
-      <button class="drum-pad" data-key="e" data-sound="hihat"><i class="fa-solid fa-minus"></i> Hi-Hat</button>
-      <button class="drum-pad" data-key="a" data-sound="tom"><i class="fa-solid fa-record-vinyl"></i> Tom</button>
-      <button class="drum-pad" data-key="s" data-sound="clap"><i class="fa-solid fa-hands-clapping"></i> Clap</button>
-      <button class="drum-pad" data-key="d" data-sound="ride"><i class="fa-solid fa-ring"></i> Ride</button>
-      <button class="drum-pad" data-key="z" data-sound="crash"><i class="fa-solid fa-star"></i> Crash</button>
-      <button class="drum-pad" data-key="x" data-sound="perc"><i class="fa-solid fa-diamond"></i> Perc</button>
-      <button class="drum-pad" data-key="c" data-sound="bass"><i class="fa-solid fa-wave-square"></i> Bass</button>
-    </div>
+    <div class="workspace">
+      <section class="launchpad-card">
+        <h2>LAUNCHPAD</h2>
+        <p>Натисніть на пад, щоб відтворити звук</p>
+        <span class="pads-count">16 / PADS</span>
 
-    <p class="drum-tip">Підключи навушники для найкращого звуку 🎧</p>
+        <div class="pads-grid">
+          <div class="pad" data-sound="kick" data-key="1"><span>01</span><span class="pad-name">KICK</span></div>
+          <div class="pad" data-sound="snare" data-key="2"><span>02</span><span class="pad-name">SNARE</span></div>
+          <div class="pad" data-sound="hat" data-key="3"><span>03</span><span class="pad-name">HAT</span></div>
+          <div class="pad" data-sound="synth" data-key="4"><span>04</span><span class="pad-name">SYNTH</span></div>
+          <div class="pad" data-sound="zap" data-key="5"><span>05</span><span class="pad-name">ZAP</span></div>
+          <div class="pad" data-sound="note" data-key="6"><span>06</span><span class="pad-name">NOTE</span></div>
+          <div class="pad" data-sound="fx" data-key="7"><span>07</span><span class="pad-name">FX</span></div>
+          <div class="pad" data-sound="lines" data-key="8"><span>08</span><span class="pad-name">LINES</span></div>
+          <div class="pad" data-sound="sparkle" data-key="9"><span>09</span><span class="pad-name">SPARKLE</span></div>
+          <div class="pad" data-sound="pulse" data-key="0"><span>10</span><span class="pad-name">PULSE</span></div>
+          <div class="pad" data-sound="vib" data-key="q"><span>11</span><span class="pad-name">VIB</span></div>
+          <div class="pad" data-sound="vol" data-key="w"><span>12</span><span class="pad-name">VOL</span></div>
+          <div class="pad" data-sound="wand" data-key="e"><span>13</span><span class="pad-name">WAND</span></div>
+          <div class="pad" data-sound="heat" data-key="r"><span>14</span><span class="pad-name">HEAT</span></div>
+          <div class="pad" data-sound="ice" data-key="t"><span>15</span><span class="pad-name">ICE</span></div>
+          <div class="pad" data-sound="bolt" data-key="y"><span>16</span><span class="pad-name">BOLT</span></div>
+        </div>
+      </section>
+
+      <aside class="controls-card">
+        <h2>Панель керування</h2>
+        <p class="section-subtitle">CONTROL DECK</p>
+
+        <div class="control-item">
+          <label>Гучність (MASTER) <span class="accent-val" id="volume-num">43%</span></label>
+          <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="43" />
+        </div>
+
+        <div class="control-item">
+          <label>Темп (BPM)</label>
+          <div class="bpm-counter">
+            <button type="button" class="bpm-minus" id="bpm-minus" aria-label="Зменшити BPM">−</button>
+            <span class="bpm-num" id="bpm-display">120 <span class="bpm-label">BPM</span></span>
+            <button type="button" class="bpm-plus" id="bpm-plus" aria-label="Збільшити BPM">+</button>
+          </div>
+        </div>
+
+        <div class="control-item">
+          <label>Фільтр частот <span class="accent-val" id="filter-num">50%</span></label>
+          <input type="range" class="filter-slider" id="filter-slider" min="0" max="100" value="50" />
+        </div>
+
+        <div class="control-item">
+          <label>ECHO (DELAY) <span class="accent-val" id="delay-num">30%</span></label>
+          <input type="range" class="delay-slider" id="delay-slider" min="0" max="100" value="30" />
+        </div>
+
+        <div class="freq-indicators">
+          <div class="freq-box"><span class="freq-title">LO</span><span class="freq-num" id="freq-lo">0</span></div>
+          <div class="freq-box"><span class="freq-title">MID</span><span class="freq-num" id="freq-mid">0</span></div>
+          <div class="freq-box"><span class="freq-title">HI</span><span class="freq-num" id="freq-hi">0</span></div>
+        </div>
+      </aside>
+
+      <section class="recording-panel">
+        <div class="rec-block" id="rec-button">
+          <div class="rec-button-wrapper">
+            <div class="rec-circle"></div>
+            <div class="rec-text">
+              <h3 id="rec-status">REC</h3>
+              <p id="rec-subtext">Натисніть для запису</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="analyzer-block">
+          <div class="analyzer-bars" id="analyzer-bars"></div>
+          <p class="analyzer-title">АНАЛІЗАТОР ЧАСТОТ РЕАЛЬНОГО ЧАСУ</p>
+        </div>
+
+        <div class="download-block">
+          <p>Створення та завантаження аудіофайлу</p>
+          <button type="button" class="download-btn" id="download-btn" disabled>📥 Завантажити мікс</button>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <script>
-    const pads = document.querySelectorAll(".drum-pad");
-    let audioCtx;
-
-    function getCtx() {
-      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      return audioCtx;
-    }
-
-    function playTone(freq, type, duration) {
-      const ctx = getCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = type;
-      osc.frequency.value = freq;
-      gain.gain.setValueAtTime(0.3, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + duration);
-    }
-
-    const sounds = {
-      kick: () => playTone(80, "sine", 0.3),
-      snare: () => playTone(200, "triangle", 0.15),
-      hihat: () => playTone(800, "square", 0.05),
-      tom: () => playTone(150, "sine", 0.2),
-      clap: () => playTone(400, "triangle", 0.1),
-      ride: () => playTone(600, "sine", 0.08),
-      crash: () => playTone(300, "sawtooth", 0.4),
-      perc: () => playTone(500, "square", 0.12),
-      bass: () => playTone(55, "sine", 0.35),
-    };
-
-    function hitPad(pad) {
-      pad.classList.add("active");
-      sounds[pad.dataset.sound]?.();
-      setTimeout(() => pad.classList.remove("active"), 120);
-    }
-
-    pads.forEach((pad) => {
-      pad.addEventListener("click", () => hitPad(pad));
-    });
-
-    document.addEventListener("keydown", (e) => {
-      const pad = document.querySelector(`.drum-pad[data-key="${e.key.toLowerCase()}"]`);
-      if (pad) {
-        e.preventDefault();
-        hitPad(pad);
-      }
-    });
-  </script>
+  <script src="baraban.js"></script>
 </body>
 </html>

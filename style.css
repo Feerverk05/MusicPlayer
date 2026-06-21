@@ -680,6 +680,73 @@ body {
   line-height: 1.5;
 }
 
+.tracks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.generated-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #bceae5;
+  border-radius: 16px;
+  padding: 14px 16px;
+  transition: border-color 0.2s;
+}
+
+.generated-track:hover {
+  border-color: #0fa395;
+}
+
+.generated-track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.generated-track-info strong {
+  font-size: 14px;
+  color: #1e3d3a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.generated-track-info span {
+  font-size: 12px;
+  color: #7da5a0;
+}
+
+.play-track-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #0fa395;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.play-track-btn:hover {
+  background: #0c877b;
+  transform: scale(1.05);
+}
+
+.generate-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
 /* ===== Drum page ===== */
 
 .drum-hero {
